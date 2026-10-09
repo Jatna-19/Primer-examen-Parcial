@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración Continua - ITLA</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f3ff;
+            color: #302344;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .logo {
+            color: #713bd1;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #48365f;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #8b5cf6;
+        }
+
+        .principal {
+            background: linear-gradient(135deg, #48208c, #8855e8);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .principal span {
+            display: inline-block;
+            border: 1px solid #ffffff80;
+            padding: 7px 16px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+        }
+
+        .principal h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .principal p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: white;
+            color: #6533b8;
+            text-decoration: none;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background-color: #eee5ff;
+        }
+
+        section {
+            padding: 65px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #5b2eaa;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .descripcion {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: #716580;
+            line-height: 1.7;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .tarjeta {
+            background-color: white;
+            padding: 28px;
+            border-radius: 15px;
+            border: 1px solid #e8ddfa;
+            box-shadow: 0 5px 18px #48208c10;
+            transition: transform 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
+
+        .icono {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #713bd1;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            color: #716580;
+            line-height: 1.7;
+        }
+
+        .proceso {
+            background-color: #eee7fc;
+        }
+
+        .paso {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+        }
+
+        .numero {
+            background-color: #713bd1;
+            color: white;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .paso h3 {
+            color: #5b2eaa;
+            margin-bottom: 8px;
+        }
+
+        .paso p {
+            color: #716580;
+            line-height: 1.6;
+        }
+
+        .final {
+            text-align: center;
+            background: linear-gradient(135deg, #48208c, #8855e8);
+            color: white;
+            border-radius: 18px;
+            padding: 40px 20px;
+        }
+
+        .final h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .final p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        footer {
+            background-color: #26143f;
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+            line-height: 1.8;
+        }
+
+        footer p {
+            color: #d8c9f1;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .principal h1 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">💜 ITLA Digital</div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#tecnologias">Tecnologías</a>
+            <a href="#proceso">Proceso</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="principal" id="inicio">
+            <span>Proyecto académico · ITLA</span>
+
+            <h1>Integración Continua<br>y Despliegue Automático</h1>
+
+            <p>
+                En esta práctica aprenderemos cómo crear una página web,
+                guardar el código en GitHub y automatizar su publicación
+                utilizando GitHub Actions y Surge.sh.
+            </p>
+
+            <a href="#tecnologias" class="boton">
+                Conocer el proyecto ↓
+            </a>
+        </section>
+
+        <section id="tecnologias">
+            <h2 class="titulo">Tecnologías utilizadas</h2>
+
+            <p class="descripcion">
+                Para desarrollar esta práctica utilizamos herramientas
+                que permiten crear, almacenar y publicar páginas web.
+            </p>
+
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <div class="icono">🌐</div>
+                    <h3>HTML y CSS</h3>
+                    <p>
+                        HTML organiza los textos y elementos de la página,
+                        mientras que CSS permite personalizar el diseño,
+                        los colores y la distribución del contenido.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🐙</div>
+                    <h3>GitHub</h3>
+                    <p>
+                        Permite guardar el código del proyecto en un
+                        repositorio y mantener un historial de los cambios
+                        realizados durante el desarrollo.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">⚙️</div>
+                    <h3>GitHub Actions</h3>
+                    <p>
+                        Automatiza tareas cuando se envían cambios al
+                        repositorio, como ejecutar los pasos necesarios
+                        para publicar una nueva versión de la página.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🚀</div>
+                    <h3>Surge.sh</h3>
+                    <p>
+                        Es un servicio que permite alojar páginas web
+                        estáticas y compartirlas mediante una dirección
+                        pública de Internet.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="proceso" id="proceso">
+            <h2 class="titulo">Pasos de la integración continua</h2>
+
+            <p class="descripcion">
+                Este es el proceso que seguimos para automatizar
+                la publicación de nuestra página web.
+            </p>
+
+            <div class="paso">
+                <div class="numero">1</div>
+                <div>
+                    <h3>Crear la página web</h3>
+                    <p>
+                        Diseñamos el archivo index.html utilizando
+                        Visual Studio Code, HTML y CSS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="paso">
+                <div class="numero">2</div>
+                <div>
+                    <h3>Crear el repositorio en GitHub</h3>
+                    <p>
+                        Subimos los archivos del proyecto para mantener
+                        el código disponible en un repositorio remoto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="paso">
+                <div class="numero">3</div>
+                <div>
+                    <h3>Configurar GitHub Actions</h3>
+                    <p>
+                        Creamos un archivo YAML que define las instrucciones
+                        que se ejecutarán cuando enviemos cambios a la
+                        rama principal del repositorio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="paso">
+                <div class="numero">4</div>
+                <div>
+                    <h3>Publicar con Surge.sh</h3>
+                    <p>
+                        Configuramos el despliegue para enviar los archivos
+                        a Surge de manera automática, utilizando un secreto
+                        de GitHub para proteger el token de acceso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="final">
+                <h2>¡Nuestro proyecto en Internet!</h2>
+
+                <p>
+                    La integración continua nos ayuda a simplificar
+                    las actualizaciones de una página web y a comprender
+                    cómo se pueden automatizar tareas del desarrollo.
+                </p>
+
+                <a
+                    class="boton"
+                    href="https://practica-itla-jatna.surge.sh"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Visitar mi página publicada ↗
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Integración Continua y Despliegue Automático</strong></p>
+        <p>Instituto Tecnológico de las Américas (ITLA)</p>
+        <p>Proyecto académico desarrollado con HTML, CSS, GitHub Actions y Surge.sh.</p>
+    </footer>
+
+</body>
+</html>
